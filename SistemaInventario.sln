@@ -10,11 +10,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaInventario.AccesoDatos", "SistemaInventario.AccesoDatos\SistemaInventario.AccesoDatos.csproj", "{D2EB474D-4C10-44AF-B600-C91A9EAD9A2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaInventario.DataAccess", "SistemaInventario.AccesoDatos\SistemaInventario.DataAccess.csproj", "{D2EB474D-4C10-44AF-B600-C91A9EAD9A2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaInventario.Modelos", "SistemaInventario.Modelos\SistemaInventario.Modelos.csproj", "{8BF93B66-0EE5-449E-9E87-1CCFCD2E7306}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaInventario.Models", "SistemaInventario.Modelos\SistemaInventario.Models.csproj", "{8BF93B66-0EE5-449E-9E87-1CCFCD2E7306}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemaInventario.Utilidades", "SistemaInventario.Utilidades\SistemaInventario.Utilidades.csproj", "{156FA7F3-E2F3-4274-908F-E12C1AA1B1A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SistemaInventario.Utilities", "SistemaInventario.Utilidades\SistemaInventario.Utilities.csproj", "{156FA7F3-E2F3-4274-908F-E12C1AA1B1A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

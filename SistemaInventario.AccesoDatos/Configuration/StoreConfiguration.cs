@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace SistemaInventario.AccesoDatos.Configuracion
 {
-    public class BodegaConfiguracion : IEntityTypeConfiguration<Bodega>
+    public class StoreConfiguration : IEntityTypeConfiguration<Store>
     {
-        public void Configure(EntityTypeBuilder<Bodega> builder)
+        public void Configure(EntityTypeBuilder<Store> builder)
         {
             builder.Property(x => x.Id).IsRequired();
             builder.Property(x => x.Name).IsRequired().HasMaxLength(60);

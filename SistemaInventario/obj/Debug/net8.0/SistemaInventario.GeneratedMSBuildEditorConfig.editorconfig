@@ -25,6 +25,8 @@ build_property.SupportLocalizedComponentNames =
 build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\josep\source\repos\SistemaInventario\SistemaInventario
 build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
 
 [C:/Users/josep/AppData/Roaming/SonarLint for Visual Studio/.global/csharp/SonarLint.xml]
 build_metadata.AdditionalFiles.TargetPath = 
@@ -42,20 +44,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventario/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50YXJpb1xWaWV3c1xIb21lXEluZGV4LmNzaHRtbA==
+[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventary/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50YXJ5XFZpZXdzXEhvbWVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventario/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50YXJpb1xWaWV3c1xIb21lXFByaXZhY3kuY3NodG1s
+[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventary/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50YXJ5XFZpZXdzXEhvbWVcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventario/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50YXJpb1xWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventary/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50YXJ5XFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventario/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50YXJpb1xWaWV3c1xfVmlld1N0YXJ0LmNzaHRtbA==
+[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventary/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50YXJ5XFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Views/Shared/Error.cshtml]
