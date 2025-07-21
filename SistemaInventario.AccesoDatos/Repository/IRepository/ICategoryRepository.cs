@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace SistemaInventario.DataAccess.Repository.IRepository
 {
-    public interface IStoreRepository : IRepository<Store>
+    public interface ICategoryRepository : IRepository<Category>
     {
-        void Update(Store store);
+        void Update(Category category);
     }
 }

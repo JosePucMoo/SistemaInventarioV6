@@ -1,16 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SistemaInventario.DataAccess.Repository.IRepository;
+using SistemaInventario.Modelos;
 using SistemaInventario.Models;
 using SistemaInventario.Utilidades;
 
 namespace SistemaInventario.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class StoreController : Controller
+    public class CategoryController : Controller
     {
         private readonly IWorkUnit _workUnit;
 
-        public StoreController(IWorkUnit workUnit)
+        public CategoryController(IWorkUnit workUnit)
         {
             _workUnit = workUnit;
         }
@@ -21,50 +22,50 @@ namespace SistemaInventario.Areas.Admin.Controllers
 
         public async Task<IActionResult> Upsert(int? id)
         {
-            Store store = new Store();
+            Category category = new Category();
 
             if (id == null)
             {
-                //Create new store
-                store.Status = true;
-                return View(store);
+                //Create new category
+                category.Status = true;
+                return View(category);
             }
 
-            //Update Store
-            store = await _workUnit.Store.Get(id.GetValueOrDefault());
+            //Update category
+            category = await _workUnit.Category.Get(id.GetValueOrDefault());
 
-            if (store == null)
+            if (category == null)
             {
                 return NotFound();
             }
 
-            return View(store);
+            return View(category);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Upsert(Store store)
+        public async Task<IActionResult> Upsert(Category category)
         {
             if (ModelState.IsValid)
             {
-                if (store.Id == 0)
+                if (category.Id == 0)
                 {
-                    await _workUnit.Store.Add(store);
-                    TempData[DS.Success] = "Bodega creada exitosamente";
+                    await _workUnit.Category.Add(category);
+                    TempData[DS.Success] = "Categoria creada exitosamente";
                 }
                 else
                 {
-                    _workUnit.Store.Update(store);
-                    TempData[DS.Success] = "Bodega actualizada exitosamente";
+                    _workUnit.Category.Update(category);
+                    TempData[DS.Success] = "Categoria actualizada exitosamente";
                 }
 
                 await _workUnit.Save();
 
                 return RedirectToAction(nameof(Index));
             }
-            TempData[DS.Error] = "Error al guardar bodega";
+            TempData[DS.Error] = "Error al guardar categoria";
 
-            return View(store);
+            return View(category);
         }
 
         
@@ -73,7 +74,7 @@ namespace SistemaInventario.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var all = await _workUnit.Store.GetAll();
+            var all = await _workUnit.Category.GetAll();
 
             return Json(new { data = all });
         }
@@ -81,23 +82,23 @@ namespace SistemaInventario.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
-            var storeBD = await _workUnit.Store.Get(id);
-            if (storeBD == null)
+            var categoryBD = await _workUnit.Category.Get(id);
+            if (categoryBD == null)
             {
-                return Json(new { success = false, message = "Error al borrar bodega, no existe en la base de datos" });
+                return Json(new { success = false, message = "Error al borrar categoria, no existe en la base de datos" });
             }
 
-            _workUnit.Store.Remove(storeBD);
+            _workUnit.Category.Remove(categoryBD);
             await _workUnit.Save();
 
-            return Json(new { success = true, message = "Bodega borrada exitosamente" });
+            return Json(new { success = true, message = "Categoria borrada exitosamente" });
         }
 
         [ActionName("ValidateName")]
         public async Task<IActionResult> ValidateName(string name, int id = 0)
         {
             bool value = false;
-            var list = await _workUnit.Store.GetAll();
+            var list = await _workUnit.Category.GetAll();
 
             if(id == 0)
             {

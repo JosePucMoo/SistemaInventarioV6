@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using SistemaInventario.Modelos;
 using SistemaInventario.Models;
 using System;
 using System.Collections.Generic;
@@ -7,11 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaInventario.AccesoDatos.Configuracion
+namespace SistemaInventario.DataAccess.Configuration
 {
-    public class StoreConfiguration : IEntityTypeConfiguration<Store>
+    public class CategoryConfiguration : IEntityTypeConfiguration<Category>
     {
-        public void Configure(EntityTypeBuilder<Store> builder)
+        public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder.Property(x => x.Id).IsRequired();
             builder.Property(x => x.Name).IsRequired().HasMaxLength(60);

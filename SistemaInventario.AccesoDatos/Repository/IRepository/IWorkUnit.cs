@@ -9,6 +9,7 @@ namespace SistemaInventario.DataAccess.Repository.IRepository
     public interface IWorkUnit : IDisposable
     {
         IStoreRepository Store { get; }
+        ICategoryRepository Category { get; }
         Task Save();
     }
 }

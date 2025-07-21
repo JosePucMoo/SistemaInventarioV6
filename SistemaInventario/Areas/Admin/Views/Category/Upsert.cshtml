@@ -1,7 +1,7 @@
-﻿@model SistemaInventario.Models.Store
+﻿@model SistemaInventario.Models.Category
 
 @{
-    var title = "Crear bodega";
+    var title = "Crear categoria";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -14,7 +14,7 @@
 
         @if (Model.Id != 0)
         {
-            title = "Actualizar bodega";
+            title = "Actualizar categoria";
             <input type="hidden" asp-for="Id" id="id"/>
         }
 
@@ -24,14 +24,14 @@
         <div class="row mb-2 mt-2">
             <div class="form-grop col-md-6">
                 <label for="name">Nombre</label>
-                <input type="text" asp-for="Name" class="form-control" placeholder="Nombre de la bodega" id="name"/>
+                <input type="text" asp-for="Name" class="form-control" placeholder="Nombre de la categoria" id="name"/>
                 <span asp-validation-for="Name" class="text-danger"></span>
             </div>
         </div>
         <div class="row mb-2 mt-2">
             <div class="form-grop col-md-6">
                 <label for="description">Descripción</label>
-                <input type="text" asp-for="Description" class="form-control" placeholder="Descripción de la bodega" />
+                <input type="text" asp-for="Description" class="form-control" placeholder="Descripción de la categoria" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
         </div>
@@ -67,7 +67,7 @@
         });
 
         function validateName(){
-            var url = '@Url.Content("~/")' + "Admin/Store/ValidateName";
+            var url = '@Url.Content("~/")' + "Admin/Category/ValidateName";
             var id = '#id';
             var name = '#name';
 
@@ -75,7 +75,7 @@
                 $.each(data, function (key, value) {
                     if(value) {
                         var name = document.getElementById("name");
-                        swal("Error", "Ya existe una bodega con ese nombre", "error");
+                        swal("Error", "Ya existe una categoria con ese nombre", "error");
                         name.value = "";
                     }
                 });

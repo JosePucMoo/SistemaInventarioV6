@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SistemaInventario.Modelos;
+using SistemaInventario.Models;
 using System.Reflection;
 
 namespace SistemaInventario.AccesoDatos.Data
@@ -13,6 +14,7 @@ namespace SistemaInventario.AccesoDatos.Data
         }
 
         public DbSet<Store> Stores { get; set; }
+        public DbSet<Category> Categories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

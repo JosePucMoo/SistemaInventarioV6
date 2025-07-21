@@ -12,27 +12,26 @@ using System.Threading.Tasks;
 
 namespace SistemaInventario.DataAccess.Repository
 {
-    public class CategoryRepository : Repository<Category>, ICategoryRepository
+    public class StoreRepository : Repository<Store>, IStoreRepository
     {
         private readonly ApplicationDbContext _context;
 
-        public CategoryRepository(ApplicationDbContext context) : base(context) 
+        public StoreRepository(ApplicationDbContext context) : base(context) 
         {
             _context = context;
         }
 
-        public void Update(Category category)
+        public void Update(Store store)
         {
-            var storeBD = _context.Stores.FirstOrDefault(s => s.Id == category.Id);
+            var storeBD = _context.Stores.FirstOrDefault(s => s.Id == store.Id);
 
             if (storeBD != null)
             {
-                storeBD.Name = category.Name;
-                storeBD.Description = category.Description;
-                storeBD.Status = category.Status;
+                storeBD.Name = store.Name;
+                storeBD.Description = store.Description;
+                storeBD.Status = store.Status;
                 _context.SaveChanges();
             }
         }
-
     }
 }
