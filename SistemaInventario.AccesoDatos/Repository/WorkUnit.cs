@@ -13,12 +13,14 @@ namespace SistemaInventario.DataAccess.Repository
         private readonly ApplicationDbContext _context;
         public IStoreRepository Store {  get; private set; }
         public ICategoryRepository Category { get; private set; }
+        public IBrandRepository Brand { get; private set; }
 
         public WorkUnit(ApplicationDbContext context)
         {
             _context = context;
             Store = new StoreRepository(context);
             Category = new CategoryRepository(context);
+            Brand = new BrandRepository(context);
         }
 
         public void Dispose()

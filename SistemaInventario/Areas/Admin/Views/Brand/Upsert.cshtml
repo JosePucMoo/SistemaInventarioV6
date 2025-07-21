@@ -1,0 +1,86 @@
+﻿@model SistemaInventario.Models.Brand
+
+@{
+    var title = "Crear marca";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<form method="post">
+    <div style="padding-left:15%; padding-right:15%; padding-bottom:inherit.4rem;">
+        <div class="row border-0">
+            <div asp-validation-sumary="ModelOnly" class="text-danger"></div>
+        </div>
+
+        @if (Model.Id != 0)
+        {
+            title = "Actualizar marca";
+            <input type="hidden" asp-for="Id" id="id"/>
+        }
+
+        <div class="col-12 border-bottom p-0">
+            <h2 class="text-primary">@title</h2>
+        </div>
+        <div class="row mb-2 mt-2">
+            <div class="form-grop col-md-6">
+                <label for="name">Nombre</label>
+                <input type="text" asp-for="Name" class="form-control" placeholder="Nombre de la marca" id="name"/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row mb-2 mt-2">
+            <div class="form-grop col-md-6">
+                <label for="description">Descripción</label>
+                <input type="text" asp-for="Description" class="form-control" placeholder="Descripción de la marca" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row mb-2 mt-2">
+            <div class="form-grop col-md-6">
+                <label for="status">Estado</label>
+                <select asp-for="Status" class="form-select">
+                    <option value=true>Activo</option>
+                    <option value=false>Inactivo</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
+            </div>
+        </div>
+        <br />
+        <div>
+            @if(Model.Id != 0)
+            {
+                <partial name="_UpdateAndBackButtons" model="Model.Id" />
+            }else
+            {
+                <partial name="_CreateAndBackButtons" />
+            }
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        document.getElementById("name").addEventListener('change', function () {
+            validateName();
+        });
+
+        function validateName(){
+            var url = '@Url.Content("~/")' + "Admin/Brand/ValidateName";
+            var id = '#id';
+            var name = '#name';
+
+            $.getJSON(url, { id: $(id).val(), name: $(name).val() }, function (data) {
+                $.each(data, function (key, value) {
+                    if(value) {
+                        var name = document.getElementById("name");
+                        swal("Error", "Ya existe una marca con ese nombre", "error");
+                        name.value = "";
+                    }
+                });
+            });
+        }
+    </script>
+}
+
