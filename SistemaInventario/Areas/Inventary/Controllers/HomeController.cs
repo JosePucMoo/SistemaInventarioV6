@@ -4,7 +4,7 @@ using System.Diagnostics;
 
 namespace SistemaInventario.Areas.Inventario.Controllers
 {
-    [Area("Inventario")]
+    [Area("Inventary")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
