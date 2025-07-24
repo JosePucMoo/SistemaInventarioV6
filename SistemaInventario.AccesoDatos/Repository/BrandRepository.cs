@@ -1,7 +1,5 @@
 ﻿using SistemaInventario.AccesoDatos.Data;
-using SistemaInventario.AccesoDatos.Repositorio.IRepositorio;
 using SistemaInventario.DataAccess.Repository.IRepository;
-using SistemaInventario.Modelos;
 using SistemaInventario.Models;
 using System;
 using System.Collections.Generic;
@@ -23,13 +21,13 @@ namespace SistemaInventario.DataAccess.Repository
 
         public void Update(Brand brand)
         {
-            var storeBD = _context.Brands.FirstOrDefault(s => s.Id == brand.Id);
+            var brandBD = _context.Brands.FirstOrDefault(s => s.Id == brand.Id);
 
-            if (storeBD != null)
+            if (brandBD != null)
             {
-                storeBD.Name = brand.Name;
-                storeBD.Description = brand.Description;
-                storeBD.Status = brand.Status;
+                brandBD.Name = brand.Name;
+                brandBD.Description = brand.Description;
+                brandBD.Status = brand.Status;
                 _context.SaveChanges();
             }
         }

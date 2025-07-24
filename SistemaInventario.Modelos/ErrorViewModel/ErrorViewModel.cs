@@ -1,8 +1,8 @@
-namespace SistemaInventario.Modelos.ViewModels
+namespace SistemaInventario.Models.ErrorViewModel
 {
     public class ErrorViewModel
     {
-        public string? RequestId { get; set; }
+        public string RequestId { get; set; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }

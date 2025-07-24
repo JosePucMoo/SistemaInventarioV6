@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SistemaInventario.DataAccess.Repository.IRepository;
 using SistemaInventario.Models;
-using SistemaInventario.Utilidades;
+using SistemaInventario.Utilities;
 
 namespace SistemaInventario.Areas.Admin.Controllers
 {
