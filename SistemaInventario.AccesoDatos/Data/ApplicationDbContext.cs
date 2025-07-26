@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using SistemaInventario.Models;
 using System.Reflection;
 
-namespace SistemaInventario.AccesoDatos.Data
+namespace SistemaInventario.DataAccess
 {
     public class ApplicationDbContext : IdentityDbContext
     {

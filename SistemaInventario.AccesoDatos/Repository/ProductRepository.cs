@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using SistemaInventario.AccesoDatos.Data;
 using SistemaInventario.DataAccess.Repository.IRepository;
 using SistemaInventario.Models;
 using System;

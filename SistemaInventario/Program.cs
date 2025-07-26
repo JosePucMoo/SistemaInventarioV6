@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using SistemaInventario.AccesoDatos.Data;
+using SistemaInventario.DataAccess;
 using SistemaInventario.DataAccess.Repository;
 using SistemaInventario.DataAccess.Repository.IRepository;
 

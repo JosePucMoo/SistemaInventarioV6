@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SistemaInventario.AccesoDatos.Data;
-using SistemaInventario.AccesoDatos.Repositorio.IRepositorio;
+using SistemaInventario.DataAccess.Repository.IRepository;
+using SistemaInventario.Models.Specifications;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,6 +59,32 @@ namespace SistemaInventario.DataAccess.Repository
             }
 
             return await query.ToListAsync();
+        }
+
+        public PagedList<T> GetAllPaged(Params parameters, Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = null, bool isTracking = true)
+        {
+            IQueryable<T> query = dbSet;
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+            if (includeProperties != null)
+            {
+                foreach (var property in includeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+                {
+                    query = query.Include(property);
+                }
+            }
+            if (orderBy != null)
+            {
+                query = orderBy(query);
+            }
+            if (!isTracking)
+            {
+                query = query.AsNoTracking();
+            }
+
+            return PagedList<T>.ToPagedList(query, parameters.PageNumber, parameters.PageSize);
         }
 
         public async Task<T> GetFirst(Expression<Func<T, bool>> filter = null, string includeProperties = null, bool isTracking = true)

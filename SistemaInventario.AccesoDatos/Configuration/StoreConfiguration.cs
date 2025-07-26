@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaInventario.AccesoDatos.Configuracion
+namespace SistemaInventario.DataAccess.Configuration
 {
     public class StoreConfiguration : IEntityTypeConfiguration<Store>
     {

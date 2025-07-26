@@ -1,11 +1,12 @@
-﻿using System;
+﻿using SistemaInventario.Models.Specifications;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SistemaInventario.AccesoDatos.Repositorio.IRepositorio
+namespace SistemaInventario.DataAccess.Repository.IRepository
 {
     public interface IRepository<T> where T : class
     {
@@ -16,6 +17,15 @@ namespace SistemaInventario.AccesoDatos.Repositorio.IRepositorio
             string includeProperties = null, 
             bool isTracking = true
         );
+
+        PagedList<T> GetAllPaged(
+            Params parameters,
+            Expression<Func<T, bool>> filter = null,
+            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
+            string includeProperties = null,
+            bool isTracking = true
+        );
+
         Task<T> GetFirst(
             Expression<Func<T, bool>> filter = null,
             string includeProperties = null,

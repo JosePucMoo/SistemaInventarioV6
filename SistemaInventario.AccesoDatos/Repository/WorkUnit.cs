@@ -1,5 +1,4 @@
-﻿using SistemaInventario.AccesoDatos.Data;
-using SistemaInventario.DataAccess.Repository.IRepository;
+﻿using SistemaInventario.DataAccess.Repository.IRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;

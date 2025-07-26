@@ -1,5 +1,4 @@
-﻿using SistemaInventario.AccesoDatos.Data;
-using SistemaInventario.DataAccess.Repository.IRepository;
+﻿using SistemaInventario.DataAccess.Repository.IRepository;
 using SistemaInventario.Models;
 
 namespace SistemaInventario.DataAccess.Repository

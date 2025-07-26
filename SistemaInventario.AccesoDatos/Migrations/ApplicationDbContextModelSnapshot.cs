@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SistemaInventario.AccesoDatos.Data;
+using SistemaInventario.DataAccess;
 
 #nullable disable
 
-namespace SistemaInventario.AccesoDatos.Migrations
+namespace SistemaInventario.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
