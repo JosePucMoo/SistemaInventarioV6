@@ -14,6 +14,7 @@ namespace SistemaInventario.DataAccess.Repository
         public ICategoryRepository Category { get; private set; }
         public IBrandRepository Brand { get; private set; }
         public IProductRepository Product { get; private set; }
+        public IUserAppRepository UserApp { get; private set; }
 
         public WorkUnit(ApplicationDbContext context)
         {
@@ -22,6 +23,7 @@ namespace SistemaInventario.DataAccess.Repository
             Category = new CategoryRepository(context);
             Brand = new BrandRepository(context);
             Product = new ProductRepository(context);
+            UserApp = new UserAppRepository(context);
         }
 
         public void Dispose()
