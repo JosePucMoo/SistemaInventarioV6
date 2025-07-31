@@ -1,0 +1,88 @@
+﻿@{
+    ViewData["Title"] = "KardexProducto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var titulo = "Kardex por producto";
+}
+
+<form method="post">
+    <div style="padding-left:15%; padding-right:15%; padding-bottom:0.4rem;">
+        <div class="col-12 border-bottom p-0">
+            <h2 class="text-primary">@titulo </h2>
+        </div>
+
+        <div class="row mb-2">
+            <div class="form-group col-md-3" style="padding-top:14px;">
+                <label>Fecha inicio</label>
+                <input type="date" class="form-control" id="starDateId" name="starDateId">
+            </div>
+            <div class="form-group col-md-3" style="padding-top:14px;">
+                <label>Fecha final</label>
+                <input type="date" class="form-control" id="endDateId" name="endDateId" autocomplete="off">
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="form-group col-md-6 mb-2">
+                <select class="form-select" id="productId" name="productId">
+                </select>
+            </div>
+        </div>
+
+        <div class="d-grid gap-2 d-md-block">
+            <button type="submit" class="btn btn-success" onfocus="false" id="btnConsult">Consultar</button>
+            <a asp-action="Index" class="btn btn-primary">Regresar</a>
+        </div>
+    </div>
+</form>
+
+
+@section Scripts {
+    <script>
+        $("#productId").select2({
+            placeholder: "Seleccionar producto",
+            allowClear: true,
+            theme: "bootstrap-5",
+            ajax: {
+                url: "/inventory/inventory/SearchProduct",
+                ContentType: "application/json; charset=utf-8",
+                data: function(params) {
+                    var query = {
+                        term: params.term
+                    };
+                    return query;
+                },
+                processResults: function(result) {
+                    return {
+                        results: $.map(result, function(item){
+                            return {
+                                id:item.id,
+                                text: item.serialNumber + ' ' + item.description
+                            };
+                        })
+                    };
+                }
+            }
+        });
+    </script>
+
+    <script>
+        $("#btnConsult").click(function () {
+            let starDateId = document.getElementById("starDateId").value;
+            let endDateId = document.getElementById("endDateId").value;
+            let productId = document.getElementById("productId").value;
+
+            if (starDateId.toString() == '') {
+                swal("Error","Ingrese una fecha de inicio","error");
+                return false;
+            }
+            if (endDateId.toString() == '') {
+                swal("Error", "Ingrese una fecha final", "error");
+                return false;
+            }
+
+            if (productId.toString() == '') {
+                swal("Error", "Ingrese un producto", "error");
+                return false;
+            }
+        });
+    </script>
+}

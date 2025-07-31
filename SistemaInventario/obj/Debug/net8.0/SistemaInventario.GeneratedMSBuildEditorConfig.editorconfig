@@ -236,20 +236,40 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventary/Views/Home/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50YXJ5XFZpZXdzXEhvbWVcSW5kZXguY3NodG1s
+[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventory/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50b3J5XFZpZXdzXEhvbWVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventary/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50YXJ5XFZpZXdzXEhvbWVcUHJpdmFjeS5jc2h0bWw=
+[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventory/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50b3J5XFZpZXdzXEhvbWVcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventary/Views/_ViewImports.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50YXJ5XFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventory/Views/Inventory/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50b3J5XFZpZXdzXEludmVudG9yeVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventary/Views/_ViewStart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50YXJ5XFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
+[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventory/Views/Inventory/InventoryDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50b3J5XFZpZXdzXEludmVudG9yeVxJbnZlbnRvcnlEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventory/Views/Inventory/KardexProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50b3J5XFZpZXdzXEludmVudG9yeVxLYXJkZXhQcm9kdWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventory/Views/Inventory/KardexProductResult.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50b3J5XFZpZXdzXEludmVudG9yeVxLYXJkZXhQcm9kdWN0UmVzdWx0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventory/Views/Inventory/NewInventory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50b3J5XFZpZXdzXEludmVudG9yeVxOZXdJbnZlbnRvcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventory/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50b3J5XFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventory/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50b3J5XFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Views/Shared/Error.cshtml]

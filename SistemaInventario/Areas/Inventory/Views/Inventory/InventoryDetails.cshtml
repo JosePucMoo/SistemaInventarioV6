@@ -1,0 +1,149 @@
+﻿@model SistemaInventario.Models.ViewModels.InventoryVM
+@{
+    ViewData["Title"] = "InventoryDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container p-2">
+    <div class="card-header bg-dark text-light m-lg-0 row container">
+        <div class="col-6">
+            Agregar detalle inventario
+        </div>
+        <div class="col-6 text-end">
+            <a asp-action"Index" class="text-white" style="text-decoration:none;">Salir</a>
+        </div>
+    </div>
+
+    <form method="post" class="p-2">
+        <input asp-for="Inventory.Id" id="inventoryId" name="InventoryId" hidden />
+
+        <div class="form-group mb-4">
+            Bodega
+            <input asp-for="Inventory.Store.Name" class="form-control" disabled />
+        </div>
+
+        <div class="row mb-2">
+            <div class="form-group col-md-3">
+                <label class="text-primary">Agregar detalle</label>
+            </div>
+        </div>
+
+        <div class="row mb-2">
+            <div class="form-group col-md-6 mb-2">
+                <select class="form-select" id="productId" name="productId">
+
+                </select>
+            </div>
+            <div class="form-group col-md-2 mb-2">
+                <input class="form-control text-end" placeholder="Cantidad" type="number" min="1" id="amountId" name="amountId"/>
+            </div>
+            <div class="form-group col-md-2 mb-2">
+                <button type="submit" class="btn btn-primary" onfocus="false" id="btnAdd">
+                    Agregar
+                </button>
+            </div>
+        </div>
+
+    </form>
+        
+    <table class="table table-striped border">
+        <thead class="thead-dark">
+            <tr class="table-secondary thead-dark">
+                <th>Producto</th>
+                <th>Marca</th>
+                <th>Costo</th>
+                <th>Stock</th>
+                <th>Cantidad</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.InventoryDetailList)
+            {
+                <tr class="table-secondary thead-dark">
+                    <td>
+                        @Html.DisplayFor(d => item.Product.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(d => item.Product.Brand.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(d => item.Product.Cost)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(d => item.StockBefore)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(d => item.Amount)
+                    </td>
+                    <td>
+                        <a class="btn btn-primary text-white" asp-action="Plus" asp-route-detailId="@item.Id">
+                            <i class="bi bi-file-plus-fill"></i>
+                        </a>
+                        <a class="btn btn-primary text-white" asp-action="Minus" asp-route-detailId="@item.Id">
+                            <i class="bi bi-file-minus-fill"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @if (Model.InventoryDetailList.Count() > 0)
+    {
+        <div class="align-content-lg-center">
+            <div class="col-2">
+                <a asp-action="GenerateStock" class="btn btn-warning form-control" asp-route-inventoryId="@Model.Inventory.Id">
+                    Generar stock
+                </a>
+            </div>
+        </div>
+    }
+
+</div>
+
+@section Scripts {
+    <script>
+        $("#productId").select2({
+            placeholder: "Seleccionar producto",
+            allowClear: true,
+            theme: "bootstrap-5",
+            ajax: {
+                url: "/inventory/inventory/SearchProduct",
+                ContentType: "application/json; charset=utf-8",
+                data: function(params) {
+                    var query = {
+                        term: params.term
+                    };
+                    return query;
+                },
+                processResults: function(result) {
+                    return {
+                        results: $.map(result, function(item){
+                            return {
+                                id:item.id,
+                                text: item.serialNumber + ' ' + item.description
+                            };
+                        })
+                    };
+                }
+            }
+        });
+    </script>
+
+    <script>
+        $("#btnAdd").click(function(){
+            let amount = document.getElementById("amountId").value;
+            let product = document.getElementById("productId").value;
+
+            if(amount.toString() == "" || amount < 1) {
+                swal("Error", "Ingrese una cantidad correcta", "error");
+                return false;
+            }
+
+            if(product.toString() == "" || amount < 1) {
+                swal("Error", "Seleccione un producto", "error");
+                return false;
+            }
+        });
+    </script>
+}

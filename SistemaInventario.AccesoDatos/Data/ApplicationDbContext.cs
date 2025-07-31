@@ -17,6 +17,10 @@ namespace SistemaInventario.DataAccess
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<UserApp> UserApp { get; set; }
+        public DbSet<StoreProduct> StoreProducts { get; set; }
+        public DbSet<Inventory> Inventories { get; set; }
+        public DbSet<InventoryDetail> InventoryDetails { get; set; }
+        public DbSet<KardexInventory> KardexInventories { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

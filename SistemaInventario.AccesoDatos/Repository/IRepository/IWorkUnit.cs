@@ -13,6 +13,10 @@ namespace SistemaInventario.DataAccess.Repository.IRepository
         IBrandRepository Brand { get; }
         IProductRepository Product { get; }
         IUserAppRepository UserApp { get; }
+        IStoreProductRepository StoreProduct { get; }
+        IInventoryRepository Inventory { get; }
+        IInventoryDetailRepository InventoryDetail { get; }
+        IKardexInventoryRepository KardexInventory { get; }
         Task Save();
     }
 }

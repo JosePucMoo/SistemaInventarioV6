@@ -1,0 +1,43 @@
+﻿@model SistemaInventario.Models.ViewModels.InventoryVM
+@{
+    ViewData["Title"] = "NewInventory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var title = "Crear nuevo inventario";
+}
+
+<form method="post">
+    <div style="padding-left:15%; padding-right:15%; padding-bottom:0.5rem;">
+        <div class="row border-0">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        </div>
+
+        <input asp-for="Inventory.Status" hidden />
+        <input asp-for="Inventory.UserAppId" hidden />
+        <input asp-for="Inventory.StarDate" hidden />
+        <input asp-for="Inventory.EndDate" hidden />
+
+        <div class="col-12 border-bottom p-0">
+            <h2 class="text-primary">@title</h2>
+        </div>
+
+        <div class="row mb-2">
+            <div class="col-md-6">
+                Bodega
+                <select asp-for="Inventory.StoreId" asp-items="@Model.StoreList" class="form-select">
+                    <option disabled selected>--Seleccione una bodega--</option>
+                </select>
+                <span asp-validation-for="Inventory.StoreId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="d-grid gap-2 d-md-block">
+            <button type="submit" class="btn btn-primary">Continuar</button>
+            <a asp-action="Index" class="btn btn-success">Salir</a>
+        </div>
+
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"/>
+}

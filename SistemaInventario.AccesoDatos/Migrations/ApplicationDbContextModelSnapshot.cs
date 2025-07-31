@@ -17,7 +17,7 @@ namespace SistemaInventario.DataAccess.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.10")
+                .HasAnnotation("ProductVersion", "8.0.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -176,12 +176,10 @@ namespace SistemaInventario.DataAccess.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderKey")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -218,12 +216,10 @@ namespace SistemaInventario.DataAccess.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Name")
-                        .HasMaxLength(128)
-                        .HasColumnType("nvarchar(128)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");
@@ -283,6 +279,119 @@ namespace SistemaInventario.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("SistemaInventario.Models.Inventory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("StarDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("StoreId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserAppId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StoreId");
+
+                    b.HasIndex("UserAppId");
+
+                    b.ToTable("Inventories");
+                });
+
+            modelBuilder.Entity("SistemaInventario.Models.InventoryDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("InventoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StockBefore")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InventoryId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("InventoryDetails");
+                });
+
+            modelBuilder.Entity("SistemaInventario.Models.KardexInventory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Cost")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Detail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("RegistrationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Stock")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StockBefore")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StoreProductId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Total")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("UserAppId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StoreProductId");
+
+                    b.HasIndex("UserAppId");
+
+                    b.ToTable("KardexInventories");
                 });
 
             modelBuilder.Entity("SistemaInventario.Models.Product", b =>
@@ -359,6 +468,32 @@ namespace SistemaInventario.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Stores");
+                });
+
+            modelBuilder.Entity("SistemaInventario.Models.StoreProduct", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("Amount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StoreId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("StoreId");
+
+                    b.ToTable("StoreProducts");
                 });
 
             modelBuilder.Entity("SistemaInventario.Models.UserApp", b =>
@@ -444,6 +579,63 @@ namespace SistemaInventario.DataAccess.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("SistemaInventario.Models.Inventory", b =>
+                {
+                    b.HasOne("SistemaInventario.Models.Store", "Store")
+                        .WithMany()
+                        .HasForeignKey("StoreId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("SistemaInventario.Models.UserApp", "UserApp")
+                        .WithMany()
+                        .HasForeignKey("UserAppId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Store");
+
+                    b.Navigation("UserApp");
+                });
+
+            modelBuilder.Entity("SistemaInventario.Models.InventoryDetail", b =>
+                {
+                    b.HasOne("SistemaInventario.Models.Inventory", "Inventory")
+                        .WithMany()
+                        .HasForeignKey("InventoryId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("SistemaInventario.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Inventory");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("SistemaInventario.Models.KardexInventory", b =>
+                {
+                    b.HasOne("SistemaInventario.Models.StoreProduct", "StoreProduct")
+                        .WithMany()
+                        .HasForeignKey("StoreProductId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("SistemaInventario.Models.UserApp", "UserApp")
+                        .WithMany()
+                        .HasForeignKey("UserAppId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("StoreProduct");
+
+                    b.Navigation("UserApp");
+                });
+
             modelBuilder.Entity("SistemaInventario.Models.Product", b =>
                 {
                     b.HasOne("SistemaInventario.Models.Brand", "Brand")
@@ -468,6 +660,25 @@ namespace SistemaInventario.DataAccess.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Father");
+                });
+
+            modelBuilder.Entity("SistemaInventario.Models.StoreProduct", b =>
+                {
+                    b.HasOne("SistemaInventario.Models.Product", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("SistemaInventario.Models.Store", "Store")
+                        .WithMany()
+                        .HasForeignKey("StoreId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Store");
                 });
 #pragma warning restore 612, 618
         }

@@ -170,9 +170,9 @@ namespace SistemaInventario.Areas.Identity.Pages.Account
                         await _roleManager.CreateAsync(new IdentityRole(DS.Role_Client));
                     }
 
-                    if (!await _roleManager.RoleExistsAsync(DS.Role_Inventary))
+                    if (!await _roleManager.RoleExistsAsync(DS.Role_Inventory))
                     {
-                        await _roleManager.CreateAsync(new IdentityRole(DS.Role_Inventary));
+                        await _roleManager.CreateAsync(new IdentityRole(DS.Role_Inventory));
                     }
 
                     if (user.Role == null)

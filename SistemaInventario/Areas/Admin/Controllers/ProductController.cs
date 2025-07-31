@@ -8,7 +8,7 @@ using SistemaInventario.Utilities;
 namespace SistemaInventario.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = DS.Role_Admin + "," + DS.Role_Inventary)]
+    [Authorize(Roles = DS.Role_Admin + "," + DS.Role_Inventory)]
     public class ProductController : Controller
     {
         private readonly IWorkUnit _workUnit;
