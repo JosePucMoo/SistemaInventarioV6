@@ -20,6 +20,9 @@ namespace SistemaInventario.DataAccess.Repository
         public IInventoryDetailRepository InventoryDetail { get; private set; }
         public IKardexInventoryRepository KardexInventory { get; private set; }
         public ICompanyRepository Company { get; private set; }
+        public IShoppingCartRepository ShoppingCart { get; private set; }
+        public IOrderRepository Order { get; private set; }
+        public IOrderDetailRepository OrderDetail { get; private set; }
 
         public WorkUnit(ApplicationDbContext context)
         {
@@ -34,6 +37,9 @@ namespace SistemaInventario.DataAccess.Repository
             InventoryDetail = new InventoryDetailRepository(context);
             KardexInventory = new KardexInventoryRepository(context);
             Company = new CompanyRepository(context);
+            ShoppingCart = new ShoppingCartRepository(context);
+            Order = new OrderRepository(context);
+            OrderDetail = new OrderDetailRepository(context);
         }
 
         public void Dispose()

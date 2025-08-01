@@ -11,7 +11,6 @@ namespace SistemaInventario.DataAccess
             : base(options)
         {
         }
-
         public DbSet<Store> Stores { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Brand> Brands { get; set; }
@@ -22,6 +21,9 @@ namespace SistemaInventario.DataAccess
         public DbSet<InventoryDetail> InventoryDetails { get; set; }
         public DbSet<KardexInventory> KardexInventories { get; set; }
         public DbSet<Company> Companies { get; set; }
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
