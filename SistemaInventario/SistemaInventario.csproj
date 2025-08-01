@@ -18,9 +18,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+    <PackageReference Include="Rotativa.AspNetCore" Version="1.4.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Rotativa\Windows\" />
     <Folder Include="wwwroot\images\product\" />
   </ItemGroup>
 
@@ -28,6 +30,15 @@
     <ProjectReference Include="..\SistemaInventario.AccesoDatos\SistemaInventario.DataAccess.csproj" />
     <ProjectReference Include="..\SistemaInventario.Modelos\SistemaInventario.Models.csproj" />
     <ProjectReference Include="..\SistemaInventario.Utilidades\SistemaInventario.Utilities.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Rotativa\Windows\wkhtmltoimage.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Rotativa\Windows\wkhtmltopdf.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
