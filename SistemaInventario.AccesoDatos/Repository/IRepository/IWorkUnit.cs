@@ -17,6 +17,7 @@ namespace SistemaInventario.DataAccess.Repository.IRepository
         IInventoryRepository Inventory { get; }
         IInventoryDetailRepository InventoryDetail { get; }
         IKardexInventoryRepository KardexInventory { get; }
+        ICompanyRepository Company { get; }
         Task Save();
     }
 }
