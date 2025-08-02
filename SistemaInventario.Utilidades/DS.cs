@@ -10,7 +10,10 @@ namespace SistemaInventario.Utilities
     {
         public const string Success = "Exitosa";
         public const string Error = "Error";
+
         public const string ImageRoute = @"\images\product\";
+        public const string SesionShoppingCart = "Sesion carro compras";
+
         public const string Role_Admin = "Admin";
         public const string Role_Client = "Cliente";
         public const string Role_Inventory = "Inventario";
