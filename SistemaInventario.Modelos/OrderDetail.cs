@@ -17,7 +17,7 @@ namespace SistemaInventario.Models
         [Required]
         public int ProductId { get; set; }
         public int Amount { get; set; }
-        public int Price { get; set; }
+        public double Price { get; set; }
 
         [ForeignKey("OrderId")]
         public Order Order { get; set; }

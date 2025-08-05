@@ -10,5 +10,8 @@ namespace SistemaInventario.DataAccess.Repository.IRepository
     public interface IOrderRepository : IRepository<Order>
     {
         void Update(Order order);
+
+        void UpdateStatus(int orderId, string orderStatus, string paymentStatus);
+        void UpdatePaymentStripeId(int orderId, string sessionId, string transactionId);
     }
 }

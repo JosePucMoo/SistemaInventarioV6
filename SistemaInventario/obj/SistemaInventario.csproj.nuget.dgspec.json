@@ -345,6 +345,10 @@
             "Rotativa.AspNetCore": {
               "target": "Package",
               "version": "[1.4.0, )"
+            },
+            "Stripe.net": {
+              "target": "Package",
+              "version": "[41.17.0, )"
             }
           },
           "imports": [

@@ -136,7 +136,7 @@ namespace SistemaInventario.Areas.Inventory.Controllers
             if (detail.Amount == 1)
             {
                 _workUnit.InventoryDetail.Remove(detail);
-                _workUnit.Save();
+                await _workUnit.Save();
             }
             else
             {

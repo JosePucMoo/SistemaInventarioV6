@@ -22,5 +22,33 @@ namespace SistemaInventario.DataAccess.Repository
         {
             _context.Update(order);
         }
+
+        public void UpdatePaymentStripeId(int orderId, string sessionId, string transactionId)
+        {
+            var orderBD = _context.Orders.FirstOrDefault(o => o.Id == orderId);
+            if (orderBD != null)
+            {
+                if (!String.IsNullOrEmpty(sessionId))
+                {
+                    orderBD.SessionId = sessionId;
+                }
+
+                if (!String.IsNullOrEmpty(transactionId))
+                {
+                    orderBD.TransactionId = transactionId;
+                    orderBD.PaymentDate = DateTime.Now;
+                }
+            }
+        }
+
+        public void UpdateStatus(int orderId, string orderStatus, string paymentStatus)
+        {
+            var orderBD = _context.Orders.FirstOrDefault(o => o.Id == orderId);
+            if (orderBD != null)
+            {
+                orderBD.OrderStatus = orderStatus;
+                orderBD.PaymentStatus = paymentStatus;
+            }
+        }
     }
 }

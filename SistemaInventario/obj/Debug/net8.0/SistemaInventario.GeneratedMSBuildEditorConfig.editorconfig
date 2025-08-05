@@ -276,8 +276,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50b3J5XFZpZXdzXEludmVudG9yeVxQcmludEthcmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventory/Views/ShoppingCart/ConfirmationOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50b3J5XFZpZXdzXFNob3BwaW5nQ2FydFxDb25maXJtYXRpb25PcmRlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventory/Views/ShoppingCart/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50b3J5XFZpZXdzXFNob3BwaW5nQ2FydFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventory/Views/ShoppingCart/Proceed.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSW52ZW50b3J5XFZpZXdzXFNob3BwaW5nQ2FydFxQcm9jZWVkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/josep/source/repos/SistemaInventario/SistemaInventario/Areas/Inventory/Views/_ViewImports.cshtml]

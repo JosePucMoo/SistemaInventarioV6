@@ -23,6 +23,7 @@ namespace SistemaInventario.DataAccess.Configuration
             builder.Property(x => x.TrackingNumber).IsRequired(false);
             builder.Property(x => x.Carrier).IsRequired(false);
             builder.Property(x => x.TransactionId).IsRequired(false);
+            builder.Property(x => x.SessionId).IsRequired(false);
             builder.Property(x => x.Telephone).IsRequired(false);
             builder.Property(x => x.Address).IsRequired(false);
             builder.Property(x => x.City).IsRequired(false);

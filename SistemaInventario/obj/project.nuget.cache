@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "etRp/VCBFcg=",
+  "dgSpecHash": "vICXQO3q2lo=",
   "success": true,
   "projectFilePath": "C:\\Users\\josep\\source\\repos\\SistemaInventario\\SistemaInventario\\SistemaInventario.csproj",
   "expectedPackageFiles": [
@@ -179,6 +179,7 @@
     "C:\\Users\\josep\\.nuget\\packages\\sqlitepclraw.lib.e_sqlite3\\2.1.6\\sqlitepclraw.lib.e_sqlite3.2.1.6.nupkg.sha512",
     "C:\\Users\\josep\\.nuget\\packages\\sqlitepclraw.provider.e_sqlite3\\2.1.6\\sqlitepclraw.provider.e_sqlite3.2.1.6.nupkg.sha512",
     "C:\\Users\\josep\\.nuget\\packages\\starkbank-ecdsa\\1.3.3\\starkbank-ecdsa.1.3.3.nupkg.sha512",
+    "C:\\Users\\josep\\.nuget\\packages\\stripe.net\\41.17.0\\stripe.net.41.17.0.nupkg.sha512",
     "C:\\Users\\josep\\.nuget\\packages\\system.buffers\\4.6.0\\system.buffers.4.6.0.nupkg.sha512",
     "C:\\Users\\josep\\.nuget\\packages\\system.clientmodel\\1.0.0\\system.clientmodel.1.0.0.nupkg.sha512",
     "C:\\Users\\josep\\.nuget\\packages\\system.codedom\\5.0.0\\system.codedom.5.0.0.nupkg.sha512",
